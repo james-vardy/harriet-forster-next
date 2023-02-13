@@ -5,7 +5,7 @@ export default function Head() {
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta
         name="description"
-        content="Portfolio site for srtist Harriet Forster"
+        content="Portfolio site for artist Harriet Forster"
       />
       <link rel="icon" href="/favicon.jpg" />
     </>
