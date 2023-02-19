@@ -1,6 +1,8 @@
 type image = {
   id: number;
   attributes: {
+    width: number;
+    height: number;
     url: string;
   };
 };
@@ -17,9 +19,11 @@ type collections = {
 };
 
 type collectionPopulated = {
-  id: number;
-  attributes: {
-    name: string;
-    images: { data: [image] };
+  data: {
+    id: number;
+    attributes: {
+      name: string;
+      images: { data: [image] };
+    };
   };
 };

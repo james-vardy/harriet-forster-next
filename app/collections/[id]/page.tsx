@@ -1,6 +1,5 @@
-import { Inter } from "@next/font/google";
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
-const inter = Inter({ subsets: ["latin"] });
+import Image from "next/image";
 
 async function getCollectionPopulated(id: string) {
   const res = await fetch(
@@ -27,11 +26,19 @@ export default async function Page({ params }: Params) {
     <main>
       <ul>
         {collectionPopulated &&
-          collectionPopulated.attributes.images.data.map((image: image) => (
-            <li key={image.id}>
-              <p>{image.attributes.url}</p>
-            </li>
-          ))}
+          collectionPopulated.data.attributes.images.data.map(
+            (image: image) => (
+              <li className="flex justify-center" key={image.id}>
+                <Image
+                  src={`https://strapi.harrietforster.com${image.attributes.url}`}
+                  alt={"image"}
+                  height={image.attributes.height}
+                  width={image.attributes.width}
+                  className="w-1/2 max-w-4xl h-auto px-6 py-6"
+                ></Image>
+              </li>
+            )
+          )}
       </ul>
     </main>
   );

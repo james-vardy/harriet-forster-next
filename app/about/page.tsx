@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Inter } from "@next/font/google";
 import styles from "./page.module.css";
+import { Source_Sans_Pro } from "@next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const sourceSansPro = Source_Sans_Pro({ weight: "300" });
 
 async function getBio() {
   const res = await fetch("https://strapi.harrietforster.com/api/bio");
@@ -29,8 +29,10 @@ export default async function Page() {
   const bio = await getBio();
 
   return (
-    <main>
-      <p>{bio.data.attributes.text}</p>
+    <main className={sourceSansPro.className}>
+      <div className="flex justify-center mx-20 my-20">
+        <p className=" text-center max-w-4xl">{bio.data.attributes.text}</p>
+      </div>
     </main>
   );
 }
