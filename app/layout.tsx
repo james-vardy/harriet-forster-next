@@ -14,7 +14,7 @@ export default function RootLayout({
       */}
       <head />
 
-      <body>
+      <body className="bg-slate-50">
         <NavBar />
         {children}
       </body>

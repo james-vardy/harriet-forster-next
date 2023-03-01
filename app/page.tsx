@@ -7,7 +7,12 @@ const sourceSansPro = Source_Sans_Pro({ weight: "300" });
 export default function Home() {
   return (
     <main className={sourceSansPro.className}>
-      <p>PAGE CONTENT</p>
+      <iframe
+        src="https://www.youtube.com/embed/Sv7HkLN4T8Q?modestbranding=1&autohide=1&showinfo=0&controls=0
+        "
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
     </main>
   );
 }

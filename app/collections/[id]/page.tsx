@@ -1,7 +1,7 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Image from "next/image";
 
-async function getCollectionPopulated(id: string) {
+async function getCollection(id: string) {
   const res = await fetch(
     `https://strapi.harrietforster.com/api/collections/${id}?populate=*`
   );
@@ -18,27 +18,23 @@ async function getCollectionPopulated(id: string) {
 }
 
 export default async function Page({ params }: Params) {
-  const collectionPopulated: collectionPopulated = await getCollectionPopulated(
-    params.id
-  );
+  const collection: collectionResponse = await getCollection(params.id);
 
   return (
     <main>
       <ul>
-        {collectionPopulated &&
-          collectionPopulated.data.attributes.images.data.map(
-            (image: image) => (
-              <li className="flex justify-center" key={image.id}>
-                <Image
-                  src={`https://strapi.harrietforster.com${image.attributes.url}`}
-                  alt={"image"}
-                  height={image.attributes.height}
-                  width={image.attributes.width}
-                  className="w-1/2 max-w-4xl h-auto px-6 py-6"
-                ></Image>
-              </li>
-            )
-          )}
+        {collection &&
+          collection.data.attributes.images.data.map((image: image) => (
+            <li className="flex justify-center" key={image.id}>
+              <Image
+                src={`https://strapi.harrietforster.com${image.attributes.url}`}
+                alt={"image"}
+                height={image.attributes.height}
+                width={image.attributes.width}
+                className="w-1/2 max-w-4xl h-auto px-6 py-6"
+              ></Image>
+            </li>
+          ))}
       </ul>
     </main>
   );

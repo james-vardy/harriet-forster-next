@@ -11,6 +11,8 @@ type collection = {
   id: number;
   attributes: {
     name: string;
+    images: { data: [image] };
+    cover: image;
   };
 };
 
@@ -18,12 +20,6 @@ type collections = {
   data: [collection];
 };
 
-type collectionPopulated = {
-  data: {
-    id: number;
-    attributes: {
-      name: string;
-      images: { data: [image] };
-    };
-  };
+type collectionResponse = {
+  data: collection;
 };
