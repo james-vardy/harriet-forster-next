@@ -4,15 +4,34 @@ import styles from "./page.module.css";
 
 const sourceSansPro = Source_Sans_Pro({ weight: "300" });
 
-export default function Home() {
+async function getCoverVideo() {
+  const res = await fetch(
+    "https://strapi.harrietforster.com/api/cover-video?populate=*"
+  );
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default async function Home() {
+  const coverVideo: coverVideo = await getCoverVideo();
+
   return (
     <main className={sourceSansPro.className}>
-      <iframe
-        src="https://www.youtube.com/embed/Sv7HkLN4T8Q?modestbranding=1&autohide=1&showinfo=0&controls=0
-        "
-        frameborder="0"
-        allowfullscreen
-      ></iframe>
+      <div className="px-4 py-2">
+        <div className="flex justify-center">
+          <video autoPlay className="">
+            <source
+              src={`https://strapi.harrietforster.com${coverVideo.data.attributes.video.data.attributes.url}`}
+            />
+          </video>
+        </div>
+      </div>
     </main>
   );
 }

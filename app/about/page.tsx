@@ -31,7 +31,9 @@ export default async function Page() {
   return (
     <main className={sourceSansPro.className}>
       <div className="flex justify-center mx-20 my-20">
-        <p className=" text-center max-w-4xl">{bio.data.attributes.text}</p>
+        <p className=" text-center max-w-4xl text-2xl text-slate-900">
+          {bio.data.attributes.text}
+        </p>
       </div>
     </main>
   );
