@@ -30,7 +30,7 @@ export default async function Home() {
           <tbody>
             {exhibitions.data.map((exhibition: exhibition) => {
               return (
-                <tr className="">
+                <tr className="" key={exhibition.id}>
                   <td className="border border-slate-300 px-8 py-4">
                     {exhibition.attributes.name}
                   </td>

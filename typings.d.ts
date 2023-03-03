@@ -16,12 +16,12 @@ type collection = {
   };
 };
 
-type collections = {
-  data: [collection];
-};
-
 type collectionResponse = {
   data: collection;
+};
+
+type collections = {
+  data: [collection];
 };
 
 type exhibition = {

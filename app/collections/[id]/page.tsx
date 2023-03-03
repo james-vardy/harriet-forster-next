@@ -3,6 +3,20 @@ import Image from "next/image";
 import { Source_Sans_Pro } from "@next/font/google";
 const sourceSansPro = Source_Sans_Pro({ weight: "300", subsets: ["latin"] });
 
+async function getCollections() {
+  const res = await fetch(
+    "https://strapi.harrietforster.com/api/collections?populate=*"
+  );
+
+  // Recommendation: handle errors
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
 async function getCollection(id: string) {
   const res = await fetch(
     `https://strapi.harrietforster.com/api/collections/${id}?populate=*`
@@ -20,7 +34,8 @@ async function getCollection(id: string) {
 }
 
 export default async function Page({ params }: Params) {
-  const collection: collectionResponse = await getCollection(params.id);
+  const { id } = params;
+  const collection: collectionResponse = await getCollection(id);
 
   return (
     <main>
@@ -40,4 +55,12 @@ export default async function Page({ params }: Params) {
       </ul>
     </main>
   );
+}
+
+export async function generateStaticParams() {
+  const collections: collections = await getCollections();
+
+  return collections.data.map((collection: collection) => ({
+    id: collection.id.toString(),
+  }));
 }
