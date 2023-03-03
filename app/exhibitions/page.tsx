@@ -1,8 +1,5 @@
-import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "./page.module.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Source_Sans_Pro } from "@next/font/google";
+const sourceSansPro = Source_Sans_Pro({ weight: "300", subsets: ["latin"] });
 
 async function getExhibitions() {
   const res = await fetch("https://strapi.harrietforster.com/api/exhibitions");

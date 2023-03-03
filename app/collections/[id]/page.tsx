@@ -1,5 +1,7 @@
 import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Image from "next/image";
+import { Source_Sans_Pro } from "@next/font/google";
+const sourceSansPro = Source_Sans_Pro({ weight: "300", subsets: ["latin"] });
 
 async function getCollection(id: string) {
   const res = await fetch(

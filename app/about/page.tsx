@@ -1,8 +1,5 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import { Source_Sans_Pro } from "@next/font/google";
-
-const sourceSansPro = Source_Sans_Pro({ weight: "300" });
+const sourceSansPro = Source_Sans_Pro({ weight: "300", subsets: ["latin"] });
 
 async function getBio() {
   const res = await fetch("https://strapi.harrietforster.com/api/bio");

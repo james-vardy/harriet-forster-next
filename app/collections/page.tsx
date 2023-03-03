@@ -1,9 +1,8 @@
 import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "./page.module.css";
 import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
+import { Source_Sans_Pro } from "@next/font/google";
+const sourceSansPro = Source_Sans_Pro({ weight: "300", subsets: ["latin"] });
 
 async function getCollections() {
   const res = await fetch(
