@@ -1,11 +1,4 @@
-import "./globals.css";
-
-import { Roboto_Mono } from "next/font/google";
-
-const font = Roboto_Mono({
-  weight: "400",
-  subsets: ["latin"],
-});
+import NavBar from "../NavBar";
 
 export default function RootLayout({
   children,
@@ -20,7 +13,10 @@ export default function RootLayout({
       */}
       <head />
 
-      <body className={`bg-slate-50 ${font.className}`}>{children}</body>
+      <body className="bg-slate-50">
+        <NavBar />
+        {children}
+      </body>
     </html>
   );
 }

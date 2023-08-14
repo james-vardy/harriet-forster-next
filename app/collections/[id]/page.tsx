@@ -1,19 +1,4 @@
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Image from "next/image";
-
-async function getCollections() {
-  const res = await fetch(
-    "https://edit.harrietforster.com/api/collections?populate=*"
-  );
-
-  // Recommendation: handle errors
-  if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
-}
 
 async function getCollection(id: string) {
   const res = await fetch(
@@ -31,7 +16,7 @@ async function getCollection(id: string) {
   return res.json();
 }
 
-export default async function Page({ params }: Params) {
+export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
   const collection: collectionResponse = await getCollection(id);
 
@@ -46,19 +31,11 @@ export default async function Page({ params }: Params) {
                 alt={"image"}
                 height={image.attributes.height}
                 width={image.attributes.width}
-                className="w-1/2 max-w-4xl h-auto px-6 py-6"
+                className="w-3/4 max-w-6xl h-auto py-6 px-6 lg:px-12 lg:py-12"
               ></Image>
             </li>
           ))}
       </ul>
     </main>
   );
-}
-
-export async function generateStaticParams() {
-  const collections: collections = await getCollections();
-
-  return collections.data.map((collection: collection) => ({
-    id: collection.id.toString(),
-  }));
 }

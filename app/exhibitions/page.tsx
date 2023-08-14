@@ -17,13 +17,6 @@ export default async function Home() {
     <main className="px-8 py-8">
       <div className="flex justify-center">
         <table className="table-auto order-collapse border border-slate-400 text-xl ">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Location</th>
-              <th>Date</th>
-            </tr>
-          </thead>
           <tbody>
             {exhibitions.data.map((exhibition: exhibition) => {
               return (
@@ -33,6 +26,9 @@ export default async function Home() {
                   </td>
                   <td className="border border-slate-300 px-8 py-4">
                     {exhibition.attributes.location}
+                  </td>
+                  <td className="border border-slate-300 px-8 py-4">
+                    {exhibition.attributes.description}
                   </td>
                   <td className="border border-slate-300 px-8 py-4">
                     {exhibition.attributes.date.toString().split("T")[0]}

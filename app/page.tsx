@@ -1,5 +1,4 @@
-import { Source_Sans_Pro } from "@next/font/google";
-const sourceSansPro = Source_Sans_Pro({ weight: "300", subsets: ["latin"] });
+import Link from "next/link";
 
 async function getCoverVideo() {
   const res = await fetch(
@@ -19,14 +18,21 @@ export default async function Home() {
   const coverVideo: coverVideo = await getCoverVideo();
 
   return (
-    <main className={sourceSansPro.className}>
-      <div className="px-4 py-2">
-        <div className="flex justify-center">
-          <video autoPlay className="">
-            <source
-              src={`https://edit.harrietforster.com${coverVideo.data.attributes.video.data.attributes.url}`}
-            />
-          </video>
+    <main>
+      <div>
+        <video autoPlay muted>
+          <source
+            src={`https://edit.harrietforster.com${coverVideo.data.attributes.video.data.attributes.url}`}
+          />
+        </video>
+      </div>
+      <div className="absolute inset-0 flex flex-col justify-center items-center">
+        <div className="w-100 h-100 bg-slate-50 text-5xl uppercase my-8 text-center">
+          Harriet India de Ferranti Forster
+        </div>
+
+        <div className="w-100 h-100 bg-slate-50 text-5xl uppercase my-8">
+          <Link href={"/collections"}>enter</Link>
         </div>
       </div>
     </main>

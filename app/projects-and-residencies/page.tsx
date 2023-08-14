@@ -17,8 +17,8 @@ export default async function Page() {
 
   return (
     <main>
-      <div className="flex justify-center mx-4 my-4 lg:mx-20 lg:my-20">
-        <p className=" text-center max-w-4xl text-lg lg:text-2xl text-slate-900">
+      <div className="flex justify-center mx-20 my-20">
+        <p className=" text-center max-w-4xl text-2xl text-slate-900">
           {bio.data.attributes.text}
         </p>
       </div>

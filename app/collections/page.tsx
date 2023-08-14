@@ -1,3 +1,4 @@
+import { randomInt } from "crypto";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -23,30 +24,28 @@ export default async function Page() {
       <ul>
         {collections &&
           collections.data.map((collection: collection) => (
-            <div className="flex justify-center items-center">
-              <li key={collection.id}>
-                <Link href={`/collections/${collection.id}`}>
-                  <div className="relative z-0">
-                    <Image
-                      src={`https://edit.harrietforster.com${collection.attributes.images.data[0].attributes.url}`}
-                      alt={"image"}
-                      height={
-                        collection.attributes.images.data[0].attributes.height
-                      }
-                      width={
-                        collection.attributes.images.data[0].attributes.width
-                      }
-                      className="max-w-4xl h-auto px-6 py-6"
-                    ></Image>
-                    <div className="absolute inset-0 flex justify-center items-center">
-                      <div className="w-100 h-100 bg-slate-50 text-5xl uppercase">
-                        {collection.attributes.name}
-                      </div>
+            <li key={collection.id}>
+              <Link href={`/collections/${collection.id}`}>
+                <div className="relative flex justify-center z-0">
+                  <Image
+                    src={`https://edit.harrietforster.com${collection.attributes.images.data[0].attributes.url}`}
+                    alt={"image"}
+                    height={
+                      collection.attributes.images.data[0].attributes.height
+                    }
+                    width={
+                      collection.attributes.images.data[0].attributes.width
+                    }
+                    className="w-3/4 max-w-6xl h-auto py-6 px-6 lg:px-12 lg:py-12"
+                  ></Image>
+                  <div className="absolute inset-0 flex justify-center items-center">
+                    <div className="w-100 h-100 bg-slate-50 text-2xl md:text-5xl uppercase">
+                      {collection.attributes.name}
                     </div>
                   </div>
-                </Link>
-              </li>
-            </div>
+                </div>
+              </Link>
+            </li>
           ))}
       </ul>
     </main>

@@ -30,6 +30,7 @@ type exhibition = {
     name: string;
     date: Date;
     location: string;
+    description: string;
   };
 };
 
@@ -67,6 +68,33 @@ type coverVideo = {
           };
         };
       };
+    };
+  };
+  meta: {};
+};
+
+type bio = {
+  id: number;
+  attributes: {
+    text: string;
+  };
+};
+
+type email = {
+  data: {
+    id: number;
+    attributes: {
+      email: string;
+    };
+  };
+  meta: {};
+};
+
+type instagram = {
+  data: {
+    id: number;
+    attributes: {
+      link: string;
     };
   };
   meta: {};
