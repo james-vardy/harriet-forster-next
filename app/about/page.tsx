@@ -1,6 +1,3 @@
-import { Source_Sans_Pro } from "@next/font/google";
-const sourceSansPro = Source_Sans_Pro({ weight: "300", subsets: ["latin"] });
-
 async function getBio() {
   const res = await fetch("https://edit.harrietforster.com/api/bio");
   // The return value is *not* serialized
@@ -26,7 +23,7 @@ export default async function Page() {
   const bio = await getBio();
 
   return (
-    <main className={sourceSansPro.className}>
+    <main>
       <div className="flex justify-center mx-20 my-20">
         <p className=" text-center max-w-4xl text-2xl text-slate-900">
           {bio.data.attributes.text}

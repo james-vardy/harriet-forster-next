@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { Source_Sans_Pro } from "@next/font/google";
-const sourceSansPro = Source_Sans_Pro({ weight: "300", subsets: ["latin"] });
-
 async function getCollections() {
   const res = await fetch(
     "https://edit.harrietforster.com/api/collections?populate=*"
