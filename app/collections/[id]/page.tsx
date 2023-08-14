@@ -5,7 +5,7 @@ const sourceSansPro = Source_Sans_Pro({ weight: "300", subsets: ["latin"] });
 
 async function getCollections() {
   const res = await fetch(
-    "https://strapi.harrietforster.com/api/collections?populate=*"
+    "https://edit.harrietforster.com/api/collections?populate=*"
   );
 
   // Recommendation: handle errors
@@ -19,7 +19,7 @@ async function getCollections() {
 
 async function getCollection(id: string) {
   const res = await fetch(
-    `https://strapi.harrietforster.com/api/collections/${id}?populate=*`
+    `https://edit.harrietforster.com/api/collections/${id}?populate=*`
   );
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
@@ -44,7 +44,7 @@ export default async function Page({ params }: Params) {
           collection.data.attributes.images.data.map((image: image) => (
             <li className="flex justify-center" key={image.id}>
               <Image
-                src={`https://strapi.harrietforster.com${image.attributes.url}`}
+                src={`https://edit.harrietforster.com${image.attributes.url}`}
                 alt={"image"}
                 height={image.attributes.height}
                 width={image.attributes.width}

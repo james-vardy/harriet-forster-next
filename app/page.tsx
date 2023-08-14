@@ -3,7 +3,7 @@ const sourceSansPro = Source_Sans_Pro({ weight: "300", subsets: ["latin"] });
 
 async function getCoverVideo() {
   const res = await fetch(
-    "https://strapi.harrietforster.com/api/cover-video?populate=*"
+    "https://edit.harrietforster.com/api/cover-video?populate=*"
   );
 
   // Recommendation: handle errors
@@ -24,7 +24,7 @@ export default async function Home() {
         <div className="flex justify-center">
           <video autoPlay className="">
             <source
-              src={`https://strapi.harrietforster.com${coverVideo.data.attributes.video.data.attributes.url}`}
+              src={`https://edit.harrietforster.com${coverVideo.data.attributes.video.data.attributes.url}`}
             />
           </video>
         </div>
