@@ -9,7 +9,7 @@ function NavBar() {
   return (
     <nav className="flex flex-col md:flex-row text-center justify-between px-4 py-4 md:px-8 md:py-8">
       <h1 className="text-3xl lg:text-5xl">
-        Harriet India De Ferranti Forster
+        <Link href={"/collections"}>Harriet India De Ferranti Forster</Link>
       </h1>
 
       <div className="py-2">

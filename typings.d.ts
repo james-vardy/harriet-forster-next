@@ -28,9 +28,10 @@ type exhibition = {
   id: number;
   attributes: {
     name: string;
-    date: Date;
-    location: string;
+    date: string;
+    venue: string;
     description: string;
+    link: string;
   };
 };
 
