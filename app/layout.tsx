@@ -20,7 +20,7 @@ export default function RootLayout({
       */}
       <head />
 
-      <body className={`bg-slate-50 ${font.className}`}>{children}</body>
+      <body className="bg-slate-50">{children}</body>
     </html>
   );
 }

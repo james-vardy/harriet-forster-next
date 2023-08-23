@@ -75,10 +75,16 @@ type coverVideo = {
 };
 
 type bio = {
-  id: number;
-  attributes: {
-    text: string;
+  data: {
+    id: number;
+    attributes: {
+      text: string;
+      createdAt: Date;
+      updatedAt: Date;
+      publishedAt: Date;
+    };
   };
+  meta: {};
 };
 
 type email = {
