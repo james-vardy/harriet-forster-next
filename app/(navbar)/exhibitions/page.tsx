@@ -36,7 +36,15 @@ export default async function Home() {
                       {exhibition.attributes.description}
                     </td>
                     <td className="border border-slate-300 px-8 py-4">
-                      {exhibition.attributes.date.toString().split("T")[0]}
+                      {exhibition.attributes.date
+                        .toString()
+                        .split("T")[0]
+                        .split("-")[1] +
+                        " - " +
+                        exhibition.attributes.date
+                          .toString()
+                          .split("T")[0]
+                          .split("-")[0]}
                     </td>
                   </tr>
                 );
@@ -62,7 +70,15 @@ export default async function Home() {
                       {exhibition.attributes.description}
                     </td>
                     <td className="border border-slate-300 px-8 py-4">
-                      {exhibition.attributes.date.toString().split("T")[0]}
+                      {exhibition.attributes.date
+                        .toString()
+                        .split("T")[0]
+                        .split("-")[1] +
+                        " - " +
+                        exhibition.attributes.date
+                          .toString()
+                          .split("T")[0]
+                          .split("-")[0]}
                     </td>
                   </tr>
                 );

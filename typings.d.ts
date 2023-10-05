@@ -35,6 +35,31 @@ type exhibition = {
   };
 };
 
+type projectOrResidency = {
+  id: number;
+  attributes: {
+    name: string;
+    description: string;
+    date: date;
+    link: string;
+    createdAt: date;
+    updatedAt: date;
+    publishedAt: date;
+  };
+};
+
+type projectsAndResidencies = {
+  data: [projectOrResidency];
+  meta: {
+    pagination: {
+      page: number;
+      pageSize: number;
+      pageCount: number;
+      total: number;
+    };
+  };
+};
+
 type exhibitions = {
   data: [exhibition];
 };

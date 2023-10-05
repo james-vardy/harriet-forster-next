@@ -49,22 +49,46 @@ export default async function Page() {
 
   return (
     <main>
-      <div className="flex justify-center mx-4 my-4 lg:mx-20 lg:my-20">
-        <p className=" text-center max-w-4xl text-lg lg:text-2xl text-slate-900">
-          {bio.data.attributes.text}
-        </p>
-        <p className=" text-center max-w-4xl text-lg lg:text-2xl text-slate-900">
-          Email me at:{" "}
-          <Link href={`mailto:${email.data.attributes.email}`} target="_blank">
-            {email.data.attributes.email}
-          </Link>
-        </p>
-        <p className=" text-center max-w-4xl text-lg lg:text-2xl text-slate-900">
-          Check out my Instagram:{" "}
-          <Link href={`${instagram.data.attributes.link}`}>
-            @{instagram.data.attributes.link.split("/")[3]}
-          </Link>
-        </p>
+      <div className="flex flex-col mx-4 my-4 lg:mx-20 lg:my-20">
+        <div>
+          <p className="max-w-4xl text-lg lg:text-2xl text-slate-900">
+            {bio.data.attributes.text}
+          </p>
+        </div>
+        <div className="mt-8">
+          <p className="max-w-4xl text-lg lg:text-2xl text-slate-900">
+            Contact me at:{" "}
+            <Link
+              href={`mailto:${email.data.attributes.email}`}
+              target="_blank"
+              className="text-cyan-900 hover:text-cyan-700"
+            >
+              {email.data.attributes.email}
+            </Link>
+          </p>
+          <p className="max-w-4xl text-lg lg:text-2xl text-slate-900">
+            Instagram:{" "}
+            <Link
+              href={`${instagram.data.attributes.link}`}
+              target={"_blank"}
+              className="text-cyan-900 hover:text-cyan-700"
+            >
+              @{instagram.data.attributes.link.split("/")[3]}
+            </Link>
+          </p>
+        </div>
+        <div className="mt-8">
+          <p className="max-w-4xl text-lg lg:text-2xl text-slate-900">
+            Download my{" "}
+            <Link
+              target={"_blank"}
+              href={`https://edit.harrietforster.com/uploads/Harriet_Forster_CV_52d1c49c99.pdf`}
+              className="text-cyan-900 hover:text-cyan-700"
+            >
+              CV
+            </Link>
+          </p>
+        </div>
       </div>
     </main>
   );

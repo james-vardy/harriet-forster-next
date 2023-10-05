@@ -15,14 +15,14 @@ function NavBar() {
       <div className="py-2">
         <div className="text-m">
           <Link
-            href="/collections"
+            href="/selected-works"
             className={
-              pathname == "collections"
+              pathname == "selected-works"
                 ? "underline px-2 py-2"
                 : "px-2 py-2 hover:underline decoration-slate-400"
             }
           >
-            collections
+            selected works
           </Link>
           <Link
             href="/exhibitions"
