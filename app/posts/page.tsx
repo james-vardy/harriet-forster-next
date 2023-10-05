@@ -27,7 +27,7 @@ export default async function Page() {
           {posts &&
             posts.data.map((post: post) => (
               <li key={post.id} className="px-4 py-4">
-                <Link href={`/harriet/${post.id}`}>
+                <Link href={`/posts/${post.id}`}>
                   <Image
                     src={`https://edit.harrietforster.com${post.attributes.images.data[0].attributes.url}`}
                     alt={"image"}
