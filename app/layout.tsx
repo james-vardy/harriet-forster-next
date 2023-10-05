@@ -20,7 +20,7 @@ export default function RootLayout({
       */}
       <head />
 
-      <body className="bg-slate-50">{children}</body>
+      <body className="bg-stone-300">{children}</body>
     </html>
   );
 }

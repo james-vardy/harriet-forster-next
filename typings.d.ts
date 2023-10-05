@@ -7,61 +7,30 @@ type image = {
   };
 };
 
-type collection = {
+type post = {
   id: number;
   attributes: {
     name: string;
+    description: string;
     images: { data: [image] };
-    cover: image;
-  };
-};
-
-type collectionResponse = {
-  data: collection;
-};
-
-type collections = {
-  data: [collection];
-};
-
-type exhibition = {
-  id: number;
-  attributes: {
-    name: string;
-    date: string;
-    venue: string;
-    description: string;
-    link: string;
-  };
-};
-
-type projectOrResidency = {
-  id: number;
-  attributes: {
-    name: string;
-    description: string;
     date: date;
-    link: string;
-    createdAt: date;
-    updatedAt: date;
-    publishedAt: date;
   };
 };
 
-type projectsAndResidencies = {
-  data: [projectOrResidency];
-  meta: {
-    pagination: {
-      page: number;
-      pageSize: number;
-      pageCount: number;
-      total: number;
+type postResponse = {
+  data: {
+    id: number;
+    attributes: {
+      title: string;
+      description: string;
+      images: { data: [image] };
+      date: date;
     };
   };
 };
 
-type exhibitions = {
-  data: [exhibition];
+type posts = {
+  data: [post];
 };
 
 type coverVideo = {
@@ -127,6 +96,23 @@ type instagram = {
     id: number;
     attributes: {
       link: string;
+    };
+  };
+  meta: {};
+};
+
+type headshot = {
+  data: {
+    id: number;
+    attributes: {
+      image: {
+        data: {
+          id: number;
+          attributes: {
+            url: string;
+          };
+        };
+      };
     };
   };
   meta: {};
