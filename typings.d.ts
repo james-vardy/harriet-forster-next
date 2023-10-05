@@ -7,36 +7,30 @@ type image = {
   };
 };
 
-type collection = {
+type post = {
   id: number;
   attributes: {
     name: string;
-    images: { data: [image] };
-    cover: image;
-  };
-};
-
-type collectionResponse = {
-  data: collection;
-};
-
-type collections = {
-  data: [collection];
-};
-
-type exhibition = {
-  id: number;
-  attributes: {
-    name: string;
-    date: string;
-    venue: string;
     description: string;
-    link: string;
+    images: { data: [image] };
+    date: date;
   };
 };
 
-type exhibitions = {
-  data: [exhibition];
+type postResponse = {
+  data: {
+    id: number;
+    attributes: {
+      title: string;
+      description: string;
+      images: { data: [image] };
+      date: date;
+    };
+  };
+};
+
+type posts = {
+  data: [post];
 };
 
 type coverVideo = {
@@ -75,10 +69,16 @@ type coverVideo = {
 };
 
 type bio = {
-  id: number;
-  attributes: {
-    text: string;
+  data: {
+    id: number;
+    attributes: {
+      text: string;
+      createdAt: Date;
+      updatedAt: Date;
+      publishedAt: Date;
+    };
   };
+  meta: {};
 };
 
 type email = {
@@ -96,6 +96,23 @@ type instagram = {
     id: number;
     attributes: {
       link: string;
+    };
+  };
+  meta: {};
+};
+
+type headshot = {
+  data: {
+    id: number;
+    attributes: {
+      image: {
+        data: {
+          id: number;
+          attributes: {
+            url: string;
+          };
+        };
+      };
     };
   };
   meta: {};
