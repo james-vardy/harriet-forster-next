@@ -1,6 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import type { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const { id } = params;
+
+  // fetch data
+  const post: postResponse = await getPost(id);
+
+  return {
+    title: post.data.attributes.title,
+  };
+}
 async function getPost(id: string) {
   const res = await fetch(
     `https://edit.harrietforster.com/api/posts/${id}?populate=*`

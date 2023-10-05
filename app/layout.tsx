@@ -2,6 +2,13 @@ import "./globals.css";
 
 import { Roboto_Mono } from "next/font/google";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Harriet Forster",
+  description: "Portfolio site for artist Harriet Forster",
+};
+
 const font = Roboto_Mono({
   weight: "400",
   subsets: ["latin"],
