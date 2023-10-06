@@ -28,7 +28,7 @@ export default async function Home() {
       </div>
       <div className="absolute inset-0 flex flex-col justify-center items-center">
         <div className="w-100 h-100 bg-slate-50 text-5xl uppercase my-8 text-center">
-          Harriet India de Ferranti Forster
+          Harriet India de Ferranti Forster redeploy
         </div>
 
         <div className="w-100 h-100 bg-slate-50 text-5xl uppercase my-8">
