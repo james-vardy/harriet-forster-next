@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     <main>
       <h1 className="text-4xl py-4 px-8">{post.data.attributes.title}</h1>
       <Link
-        href="/harriet"
+        href="/posts"
         className="text-xs sm:text-sm py-2 px-16 text-blue-800"
       >
         {"<- back to main page"}
