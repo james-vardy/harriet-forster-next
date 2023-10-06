@@ -32,7 +32,7 @@ export default async function Home() {
         </div>
 
         <div className="w-100 h-100 bg-slate-50 text-5xl uppercase my-8">
-          <Link href={"/harriet"}>enter</Link>
+          <Link href={"/posts"}>enter</Link>
         </div>
       </div>
     </main>
