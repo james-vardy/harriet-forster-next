@@ -30,12 +30,15 @@ export default async function Page() {
                 <Link href={`/posts/${post.id}`}>
                   <Image
                     src={`https://edit.harrietforster.com${post.attributes.images.data[0].attributes.url}`}
-                    alt={"image"}
+                    alt={post.attributes.title}
                     width="0"
                     height="0"
                     sizes="100vw"
                     className="w-full h-auto"
                   ></Image>
+                  <div className="w-100 h-100 bg-slate-50 text-xl uppercase">
+                    {post.attributes.title}
+                  </div>
                 </Link>
               </li>
             ))}

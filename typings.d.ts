@@ -10,7 +10,7 @@ type image = {
 type post = {
   id: number;
   attributes: {
-    name: string;
+    title: string;
     description: string;
     images: { data: [image] };
     date: date;
