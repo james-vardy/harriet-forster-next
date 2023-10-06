@@ -1,6 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import type { Metadata, ResolvingMetadata } from "next";
+
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const { id } = params;
+
+  // fetch data
+  const post: postResponse = await getPost(id);
+
+  return {
+    title: post.data.attributes.title,
+  };
+}
 async function getPost(id: string) {
   const res = await fetch(
     `https://edit.harrietforster.com/api/posts/${id}?populate=*`
@@ -33,7 +54,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       <p className="py-4 px-12">{post.data.attributes.description}</p>
 
       <ul>
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 py-4 px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4 px-8">
           {post &&
             post.data.attributes.images.data.map((image: image) => (
               <li className="px-4 py-4" key={image.id}>
