@@ -65,6 +65,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                   height="0"
                   sizes="100vw"
                   className="w-full h-auto"
+                  placeholder="blur"
                 ></Image>
               </li>
             ))}

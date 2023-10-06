@@ -4,6 +4,7 @@ type image = {
     width: number;
     height: number;
     url: string;
+    formats: { small: { url: string } };
   };
 };
 

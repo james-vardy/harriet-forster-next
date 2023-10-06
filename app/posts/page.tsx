@@ -35,6 +35,8 @@ export default async function Page() {
                     height="0"
                     sizes="100vw"
                     className="w-full h-auto"
+                    placeholder="blur"
+                    blurDataURL={`https://edit.harrietforster.com${post.attributes.images.data[0].attributes.formats.small.url}`}
                   ></Image>
                   <div className="w-100 h-100 bg-slate-50 text-xl uppercase">
                     {post.attributes.title}

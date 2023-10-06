@@ -7,13 +7,13 @@ function NavBar() {
   const pathname = usePathname()?.split("/").pop();
 
   return (
-    <nav className="flex flex-col md:flex-row text-center justify-between px-4 py-4 md:px-8 md:py-8">
+    <nav className="flex flex-col md:flex-row text-center justify-between px-4 py-2 md:px-8 md:py-8">
       <h1 className="text-3xl lg:text-5xl">
         <Link href={"/posts"}>Harriet India De Ferranti Forster</Link>
       </h1>
 
-      <div className="py-2">
-        <div className="text-m">
+      <div className="mt-2">
+        <div className="text-lg">
           <Link
             href="/about"
             className={
