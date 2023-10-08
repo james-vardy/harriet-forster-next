@@ -84,7 +84,7 @@ export default async function Page() {
                 target="_blank"
                 className="text-cyan-900 hover:text-cyan-700"
               >
-                {email.data.attributes.email}
+                {email.data.attributes.email} redeploy
               </Link>
             </p>
             <p className="max-w-4xl text-lg lg:text-2xl text-slate-900">
