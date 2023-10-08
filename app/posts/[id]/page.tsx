@@ -65,7 +65,7 @@ export default async function Page({ params }: { params: { id: string } }) {
       <p className="py-4 px-12">{post.data.attributes.description}</p>
 
       <ul>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 py-4 px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-4 px-8">
           {post &&
             post.data.attributes.images.data.map((image: image) => (
               <li className="px-4 py-4" key={image.id}>
