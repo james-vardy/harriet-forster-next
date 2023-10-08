@@ -3,6 +3,17 @@ import Link from "next/link";
 
 import type { Metadata, ResolvingMetadata } from "next";
 
+// Generate segments for [category]
+export async function generateStaticParams() {
+  const posts: posts = await fetch(
+    "https://edit.harrietforster.com/api/posts?populate=*"
+  ).then((res) => res.json());
+
+  return posts.data.map((post: post) => ({
+    id: post.id.toString(),
+  }));
+}
+
 type Props = {
   params: { id: string };
   searchParams: { [key: string]: string | string[] | undefined };
