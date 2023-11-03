@@ -4,7 +4,7 @@ import NavBar from "../NavBar";
 
 async function getPosts() {
   const res = await fetch(
-    "https://edit.harrietforster.com/api/posts?populate=*"
+    "https://edit.harrietforster.com/api/posts?populate=*&sort=publishedAt:desc"
   );
 
   // Recommendation: handle errors
